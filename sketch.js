@@ -9,7 +9,7 @@ function preload() {
 function setup() {
   createCanvas(600, 600)
   textFont(timerFont)
-  timer = new Timer(30, 280, "white")
+  timer = new Timer(30, 500, "white")
 }
 
 function draw() {
