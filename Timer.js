@@ -22,4 +22,8 @@ class Timer {
     stop() {
         this.amount = this.amount + 0
     }
+
+    reset () {
+        this.amount = seconds
+    }
 }
