@@ -2,21 +2,24 @@
 let socket
 
 let timer
-let tFont
-let seconds = 30
-let fps = 60
+let timerFont
 
 function preload() {
-  tFont = loadFont("assets/passion.otf")
+  timerFont = loadFont("assets/passion.otf")
 }
 
 function setup() {
   createCanvas(600, 600)
+<<<<<<< HEAD:public/sketch.js
   textFont(tFont)
   timer = new Timer(seconds, 500, "white")
 
   socket = socket.io.connect("https://svgtimer.netlify.app/")
   socket.on('keyCode', newDrawing)
+=======
+  textFont(timerFont)
+  timer = new Timer(30, 500, "white")
+>>>>>>> parent of b3424fd... Added sec and fps vars, made stop() method:sketch.js
 }
 
 function draw() {
@@ -43,10 +46,6 @@ function draw() {
   //Any other key stops timer
   } else if (keyTyped) {
     timer.stop()
-  }
-
-  if (keyTyped && keyCode === 32) {
-    timer.reset()
   }
 }
 
