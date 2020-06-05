@@ -14,12 +14,16 @@ class Timer {
     }
 
     go() {
-        if (frameCount % 60 === 0 && this.amount > 0) {
+        if (frameCount % fps === 0 && this.amount > 0) {
             this.amount--
         }
     }
 
     stop() {
         this.amount = this.amount + 0
+    }
+
+    reset() {
+        this.amount = seconds
     }
 }

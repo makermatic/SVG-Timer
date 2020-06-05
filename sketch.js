@@ -1,15 +1,17 @@
 //global var
 let timer
-let timerFont
+let tFont
+let seconds = 30
+let fps = 60
 
 function preload() {
-  timerFont = loadFont("assets/passion.otf")
+  tFont = loadFont("assets/passion.otf")
 }
 
 function setup() {
   createCanvas(600, 600)
-  textFont(timerFont)
-  timer = new Timer(30, 500, "white")
+  textFont(tFont)
+  timer = new Timer(seconds, 500, "white")
 }
 
 function draw() {
@@ -30,6 +32,10 @@ function draw() {
   //Any other key stops timer
   } else if (keyTyped) {
     timer.stop()
+  }
+
+  if (keyTyped && keyCode === 32) {
+    timer.reset()
   }
 }
 
