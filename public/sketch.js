@@ -1,4 +1,6 @@
-//global var
+//global vars
+let socket
+
 let timer
 let tFont
 let seconds = 30
@@ -12,9 +14,18 @@ function setup() {
   createCanvas(600, 600)
   textFont(tFont)
   timer = new Timer(seconds, 500, "white")
+
+  socket = socket.io.connect("https://svgtimer.netlify.app/")
+  socket.on('keyCode', newDrawing)
 }
 
 function draw() {
+  var data = {
+    thing: keyCode,
+  }
+
+  socket.emit (keyCode)
+  
   clear() //<-- transparent bg
 
   //background/square setup 
